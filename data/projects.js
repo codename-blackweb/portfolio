@@ -1237,6 +1237,13 @@ function createProject({
     : undefined;
   const resolvedArchitectureSteps =
     content.workflow?.cards || content.architectureSteps || architectureSteps;
+  const resolvedCapabilities = {
+    headline:
+      content.capabilities?.headline ||
+      content.capabilitiesHeadline ||
+      `${title} capabilities`,
+    cards: contentCapabilityCards || capabilities,
+  };
   const resolvedSystem = {
     headline: content.system?.headline || `${title} system model`,
     intro:
@@ -1248,13 +1255,6 @@ function createProject({
   const resolvedWorkflow = {
     headline: content.workflow?.headline || `${title} workflow logic`,
     cards: resolvedArchitectureSteps,
-  };
-  const resolvedCapabilities = {
-    headline:
-      content.capabilities?.headline ||
-      content.capabilitiesHeadline ||
-      `${title} capabilities`,
-    cards: contentCapabilityCards || capabilities,
   };
   const resolvedImpact = {
     headline: content.impact?.headline || content.impactHeadline || `${title} outcomes`,
@@ -1288,13 +1288,7 @@ function createProject({
     architectureSteps: resolvedArchitectureSteps,
     capabilities: resolvedCapabilities,
     impact: resolvedImpact,
-    bullets:
-      bullets || [
-        'Cinematic product-style interface',
-        'Live interactive preview',
-        'Structured narrative and system architecture',
-        'Responsive, browser-based execution',
-      ],
+    bullets,
     liveUrl,
     previewUrl,
     link: liveUrl,
@@ -1317,7 +1311,8 @@ export const projects = [
     headline: 'Marketing infrastructure built for signal, speed, and scale.',
     subheadline:
       'Overture OS connects channel activity, performance visibility, and execution workflows into one operating layer for growth teams.',
-    description: 'A marketing operating system built for high-growth businesses.',
+    description:
+      'A marketing operating system built for coordinating content, campaigns, performance visibility, and execution workflows across growth teams.',
     problem:
       'Context: Campaign planning and execution spread across disconnected tools with no unified system. The Challenge: Teams lacked a centralized way to plan, track, and execute campaigns across channels, creating bottlenecks and misalignment.',
     solution:
@@ -1355,10 +1350,10 @@ export const projects = [
       'Reduced execution bottlenecks and improved operational consistency.',
     ],
     bullets: [
-      'Connected channel activity and performance visibility',
-      'Automated execution workflows for growth teams',
-      'Real-time dashboard and reporting logic',
-      'Centralized growth experiment tracking',
+      'Centralized campaign planning, calendar management, and workflow tracking',
+      'Connected channel activity to execution visibility and performance review',
+      'Reduced bottlenecks across planning, approvals, publishing, and reporting',
+      'Built as a repeatable operating layer for campaign coordination',
     ],
     liveUrl: 'https://overture-os.netlify.app/',
     previewUrl: 'https://overture-os.netlify.app/',
@@ -1372,7 +1367,8 @@ export const projects = [
     headline: 'Signal intelligence built to move teams from noise to action.',
     subheadline:
       'SignalForge detects, organizes, and surfaces actionable signals so operators can respond faster and with more context.',
-    description: 'An AI-powered signal platform delivering actionable insights.',
+    description:
+      'An AI-powered signal intelligence platform that turns search, market, and audience behavior into actionable positioning and content strategy.',
     problem:
       'Context: Operators were monitoring too many disconnected signals without a reliable way to separate noise from priority changes. The Challenge: Important market, workflow, and performance signals were buried across tools, delaying response and making decisions reactive.',
     solution:
@@ -1410,10 +1406,10 @@ export const projects = [
       'Ranked intelligence themes before they moved into targeting and content decisions.',
     ],
     bullets: [
-      'Real-time signal detection and alerting',
-      'Customizable signal parameters and thresholds',
-      'Rich visualization dashboards',
-      'API integration for automated workflows',
+      'Extracts demand signals from search behavior and audience questions',
+      'Clusters market patterns into usable strategy insights',
+      'Prioritizes opportunities by intent, relevance, and competitive whitespace',
+      'Supports SEO, positioning, and campaign planning decisions',
     ],
     liveUrl: 'https://thesignalforge.app/',
     previewUrl: 'https://thesignalforge.app/',
@@ -1426,7 +1422,13 @@ export const projects = [
     positioning:
       'A cinematic editorial field guide built to explain how SEO, AI search, answer engines, entity authority, and multi-platform visibility now shape modern discovery.',
     description:
-      'An editorial strategy experience explaining the shift from traditional SEO to AI search and answer-engine discovery.',
+      'A cinematic editorial field guide explaining how SEO, AI search, answer engines, entity authority, and multi-platform discovery now shape visibility.',
+    bullets: [
+      'Reframes SEO around AI extraction, trust, and answer engine visibility',
+      'Converts a dense strategy topic into immersive editorial chapters',
+      'Uses cinematic pacing, typography, and motion to improve comprehension',
+      'Built as a thought leadership asset and portfolio centerpiece',
+    ],
     problem:
       'Context: Search behavior is shifting from ranked links to AI answers, entity recognition, and multi-platform discovery. The Challenge: Teams need a clear way to understand how SEO, answer engines, authority signals, and platform visibility now work together.',
     screenshotPlaceholder: 'AI search strategy field guide',
@@ -1472,7 +1474,13 @@ export const projects = [
     positioning:
       'A 3D spatial intelligence dashboard for exploring market, performance, and risk signals through interactive visual layers.',
     description:
-      'A spatial intelligence dashboard concept for exploring market and risk signals through layered 3D visualization.',
+      'A spatial intelligence dashboard concept for exploring market, performance, and risk signals through layered 3D visualization.',
+    bullets: [
+      'Maps complex performance signals into an interactive spatial interface',
+      'Highlights anomalies, patterns, movement, and concentration areas',
+      'Supports executive interpretation of complex data relationships',
+      'Uses 3D visual logic to make abstract signals easier to explore',
+    ],
     problem:
       'Context: Market, performance, and risk data often lives in flat dashboards that make spatial relationships hard to understand. The Challenge: Users needed a more dimensional way to explore layered signals without losing orientation or decision context.',
     screenshotPlaceholder: 'Axiome spatial intelligence dashboard',
@@ -1532,7 +1540,13 @@ export const projects = [
     positioning:
       'A branded executive dashboard built to translate recruitment, sentiment, and shareholder signals into leadership-ready intelligence.',
     description:
-      'An executive intelligence dashboard designed to turn recruitment, sentiment, and shareholder signals into leadership-ready visibility.',
+      'A branded executive dashboard built to translate recruitment, campaign, sentiment, and shareholder signals into leadership-ready intelligence.',
+    bullets: [
+      'Consolidates fragmented performance and sentiment signals into one view',
+      'Increased attribution visibility by +47% across campaign performance',
+      'Reduced reporting time by −35% through centralized data storytelling',
+      'Designed for faster executive review and decision-making',
+    ],
     problem:
       'Context: Leadership lacked clear visibility into how campaigns were performing and contributing to pipeline outcomes. The Challenge: Campaign data was siloed and difficult to interpret, making attribution unclear and slowing decision-making.',
     screenshotPlaceholder: 'Executive performance dashboard',
@@ -1580,7 +1594,7 @@ export const projects = [
     headline:
       'A content system designed to turn strategy into structured output.',
     description:
-      'A content management framework optimized for scale and personalization.',
+      'A campaign operations and content intelligence system built to plan, manage, approve, publish, and evaluate high-volume social content.',
     problem:
       'Context: High-volume, multi-platform content execution with inconsistent workflows and missed deadlines. The Challenge: Content production and approvals were fragmented, leading to delays, inconsistent publishing, and limited visibility into execution.',
     screenshotPlaceholder: 'Content execution system',
@@ -1616,10 +1630,10 @@ export const projects = [
       'Standardized workflows to reduce missed deadlines and execution friction.',
     ],
     bullets: [
-      'Streamlined content creation workflows',
-      'Dynamic personalization based on user behavior',
-      'Analytics-driven content optimization',
-      'Seamless integration with multiple platforms',
+      'Structured multi-platform content planning across major social channels',
+      'Reduced turnaround time by −39% through workflow standardization',
+      'Improved publishing consistency to 95%+ on-time delivery',
+      'Reduced missed deadlines through clearer planning and approval flows',
     ],
     liveUrl: 'https://sp-content-system.netlify.app/',
     previewUrl: 'https://sp-content-system.netlify.app/',
@@ -1628,7 +1642,7 @@ export const projects = [
     slug: 'mdvip-2024-national-meeting-campaign-system',
     legacySlugs: ['mdvip-content-calendar'],
     title: 'MDVIP 2024 National Meeting Campaign System',
-    category: 'Event Marketing & Campaign Operations',
+    category: 'Event Marketing & Content Operations',
     filterGroup: 'Campaigns',
     positioning: 'A Multi-Asset Event Marketing System',
     headline:
@@ -1636,7 +1650,7 @@ export const projects = [
     subheadline:
       'A connected campaign operations layer for editorial planning, event programming, post-event reporting, branded digital presentation, and social content execution.',
     description:
-      'A multi-asset campaign system spanning editorial planning, event programming, post-event reporting, branded digital presentation, and social content execution for the MDVIP 2024 National Meeting.',
+      'A multi-channel content planning and campaign execution system supporting MDVIP’s National Meeting communications and publishing workflow.',
     problem:
       'Context: Weekly content execution across multiple channels with high coordination demands. The Challenge: Content planning and execution lacked structure, leading to missed deadlines, inconsistent cadence, and reactive decision-making.',
     solution:
@@ -1674,10 +1688,10 @@ export const projects = [
       'Identified high-performing formats and improved content performance.',
     ],
     bullets: [
-      'Multi-asset event campaign planning system',
-      'Digital program, reporting, and branded proof assets',
-      'Social content execution for the National Meeting',
-      'Coordinated workflows across campaign operations',
+      'Managed weekly content planning across web, email, YouTube, Facebook, and LinkedIn',
+      'Maintained 3–4x weekly publishing cadence with 90%+ on-time delivery',
+      'Tracked impressions, CTR, conversions, and format performance',
+      'Reduced missed deadlines by −40% through structured approval workflows',
     ],
     liveUrl:
       'https://drive.google.com/file/d/1s8QHOLZpUFPR-0ihgUSCmcyQtk38yP8F/view?usp=sharing',
@@ -1719,7 +1733,13 @@ export const projects = [
     positioning:
       'A developer-facing content hub designed to organize technical resources, improve discoverability, and support product education.',
     description:
-      'A developer experience hub structured around technical resource discovery and product education.',
+      'A developer-facing content hub designed to organize technical resources, improve discoverability, and support product education.',
+    bullets: [
+      'Structured technical content into clearer developer pathways',
+      'Improved resource discoverability through stronger content architecture',
+      'Organized product education around use cases and implementation needs',
+      'Built to support self-service learning and developer adoption',
+    ],
     problem:
       'Context: Developer-facing resources needed to support education, discovery, and product understanding in one coherent destination. The Challenge: Technical content can become fragmented across docs, marketing pages, and product explainers, making it harder for developers to find the right path.',
     screenshotPlaceholder: 'Developer resource hub',
@@ -1765,7 +1785,13 @@ export const projects = [
     positioning:
       'An AI-enabled campaign operations concept built to streamline planning, execution, and optimization across marketing workflows.',
     description:
-      'An AI campaign operations concept for planning, execution, and optimization workflows.',
+      'An AI-enabled campaign operations concept built to streamline planning, execution, and optimization across marketing workflows.',
+    bullets: [
+      'Organizes objectives, audience segments, assets, timelines, and channels',
+      'Uses AI-supported workflow structure to reduce campaign planning friction',
+      'Surfaces optimization signals for messaging, timing, and channel execution',
+      'Supports faster movement from campaign planning to launch',
+    ],
     problem:
       'Context: Campaign teams often plan, execute, and optimize across disconnected workflows while AI tools sit outside the operating process. The Challenge: The concept needed to show how AI could support campaign operations without becoming another isolated layer.',
     screenshotPlaceholder: 'AI campaign operations workspace',
@@ -1811,7 +1837,13 @@ export const projects = [
     positioning:
       'A cinematic digital editorial experience built around a sharp narrative concept, immersive pacing, and high-impact visual storytelling.',
     description:
-      'A cinematic interactive essay experience built around immersive pacing and narrative visual storytelling.',
+      'A cinematic digital editorial experience built around sharp narrative pacing, immersive visual storytelling, and high-impact scroll-based reading.',
+    bullets: [
+      'Turns a written editorial idea into an interactive digital reading experience',
+      'Uses motion, contrast, typography, and spacing to create narrative tension',
+      'Structures the piece around emotional pacing and visual progression',
+      'Built as a memorable thought leadership and storytelling asset',
+    ],
     problem:
       'Context: The editorial concept required a digital experience that could carry tension, pacing, and visual impact beyond a conventional article format. The Challenge: The narrative needed to feel cinematic and immersive while remaining readable, structured, and web-native.',
     screenshotPlaceholder: 'Cinematic editorial experience',

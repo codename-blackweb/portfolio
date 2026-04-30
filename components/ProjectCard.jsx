@@ -11,6 +11,12 @@ import { motion } from 'framer-motion';
  * ensures the live links stand out clearly.
  */
 export default function ProjectCard({ project, index }) {
+  const bullets = Array.isArray(project.bullets) ? project.bullets : [];
+
+  if (!Array.isArray(project.bullets)) {
+    console.warn('Missing bullets for project:', project.title);
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -26,14 +32,16 @@ export default function ProjectCard({ project, index }) {
       <p className="editorial-copy mb-5 text-sm leading-7">
         {project.description}
       </p>
-      <ul className="editorial-muted mb-7 space-y-2 text-xs">
-        {project.bullets.slice(0, 4).map((point, idx) => (
-          <li key={idx} className="flex gap-2">
-            <span className="mt-2 h-1 w-4 shrink-0 bg-[var(--gold-muted)]" />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
+      {bullets.length > 0 && (
+        <ul className="editorial-muted mb-7 space-y-2 text-xs">
+          {bullets.slice(0, 4).map((point, idx) => (
+            <li key={idx} className="flex gap-2">
+              <span className="mt-2 h-1 w-4 shrink-0 bg-[var(--gold-muted)]" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="flex flex-wrap gap-3">
         <a
           href={project.liveUrl || project.link}
