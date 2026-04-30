@@ -196,9 +196,14 @@ export default function StrategicAssetsSection({ assets }) {
                 <h3 className="editorial-sans mt-4 text-3xl font-semibold tracking-tight text-[var(--text-primary)] md:text-5xl">
                   {asset.title}
                 </h3>
+                {asset.description && (
+                  <p className="editorial-copy mt-5 text-base leading-8">
+                    {asset.description}
+                  </p>
+                )}
                 <a
-                  href={asset.liveUrl}
-                  {...linkProps(asset.liveUrl)}
+                  href={asset.link || asset.liveUrl}
+                  {...linkProps(asset.link || asset.liveUrl)}
                   className="editorial-button-primary mt-8 inline-flex min-h-12 items-center justify-center rounded-full px-7 py-3 text-sm font-semibold uppercase tracking-widest transition hover:scale-105"
                 >
                   Open Asset

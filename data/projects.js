@@ -1851,61 +1851,91 @@ export const projects = [
   }),
 ];
 
-export const strategicAssets = [
+export const assets = [
   {
-    title: 'Strategic Asset 01',
+    title: 'The Revenue Blueprint',
     category: 'Presentation / Supporting Work',
+    description:
+      'Framework connecting content, traffic, and conversion into a measurable growth system.',
+    link:
+      'https://drive.google.com/file/d/1XOrhIYqu6eH42-CUV5WGaA9tB_2MAjH6/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1XOrhIYqu6eH42-CUV5WGaA9tB_2MAjH6/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1XOrhIYqu6eH42-CUV5WGaA9tB_2MAjH6/preview',
   },
   {
-    title: 'Strategic Asset 02',
+    title: 'Architecting the Next Phase of Growth',
     category: 'Presentation / Supporting Work',
+    description:
+      'Strategic growth architecture for moving from fragmented activity into a focused operating plan.',
+    link:
+      'https://drive.google.com/file/d/1YEHlts6BO-49bWTR-IT1tShn7w1s-D8z/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1YEHlts6BO-49bWTR-IT1tShn7w1s-D8z/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1YEHlts6BO-49bWTR-IT1tShn7w1s-D8z/preview',
   },
   {
-    title: 'Strategic Asset 03',
+    title: 'The AI Growth Engine',
     category: 'Presentation / Supporting Work',
+    description:
+      'Operating model for applying AI across research, content production, optimization, and growth execution.',
+    link:
+      'https://drive.google.com/file/d/12C0MEdYyu7GVUDzO34h56iV5FUS3_5KZ/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/12C0MEdYyu7GVUDzO34h56iV5FUS3_5KZ/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/12C0MEdYyu7GVUDzO34h56iV5FUS3_5KZ/preview',
   },
   {
-    title: 'Strategic Asset 04',
+    title: 'Proving ROI & Fixing Attribution Gaps',
     category: 'Presentation / Supporting Work',
+    description:
+      'Executive-facing analysis for connecting campaign investment, reporting clarity, and measurable return.',
+    link:
+      'https://drive.google.com/file/d/1zU3kqZqprQv4OCI8qp_9wuBvC9L71pQ6/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1zU3kqZqprQv4OCI8qp_9wuBvC9L71pQ6/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1zU3kqZqprQv4OCI8qp_9wuBvC9L71pQ6/preview',
   },
   {
-    title: 'Strategic Asset 05',
+    title: 'Digital Marketing for Mortals: Dayparting',
     category: 'Presentation / Supporting Work',
+    description:
+      'Accessible marketing strategy asset explaining timing, audience behavior, and dayparting decisions.',
+    link:
+      'https://drive.google.com/file/d/1UnliUBI_XaKaMFPnqo1wfxW13Xtoi9qI/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1UnliUBI_XaKaMFPnqo1wfxW13Xtoi9qI/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1UnliUBI_XaKaMFPnqo1wfxW13Xtoi9qI/preview',
   },
   {
-    title: 'Strategic Asset 06',
+    title: 'Fear-Based Monetization',
     category: 'Presentation / Supporting Work',
+    description:
+      'Narrative strategy analysis of how urgency, anxiety, and perceived risk influence monetization models.',
+    link:
+      'https://drive.google.com/file/d/1a3OjeC-LJRe4qjbHArLE5g607z2sAJQz/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1a3OjeC-LJRe4qjbHArLE5g607z2sAJQz/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1a3OjeC-LJRe4qjbHArLE5g607z2sAJQz/preview',
   },
   {
-    title: 'Strategic Asset 07',
+    title: 'The AI Financial Navigator',
     category: 'Presentation / Supporting Work',
+    description:
+      'Product strategy concept for using AI to guide financial decisions, planning, and user understanding.',
+    link:
+      'https://drive.google.com/file/d/1Ymkj-l_ZYR1dMAtWYxFaKnLIgyNGibHw/view?usp=sharing',
     liveUrl:
       'https://drive.google.com/file/d/1Ymkj-l_ZYR1dMAtWYxFaKnLIgyNGibHw/view?usp=sharing',
     previewUrl:
       'https://drive.google.com/file/d/1Ymkj-l_ZYR1dMAtWYxFaKnLIgyNGibHw/preview',
   },
 ];
+
+export const strategicAssets = assets;
