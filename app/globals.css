@@ -63,6 +63,40 @@ body::after {
   color: var(--text-primary);
 }
 
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(201, 161, 90, 0.12) 0.6px,
+    transparent 0.6px
+  );
+  background-size: 18px 18px;
+}
+
+@keyframes slow-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.orbit-slow {
+  transform-origin: center;
+  animation: slow-orbit 80s linear infinite;
+}
+
+.orbit-slower {
+  transform-origin: center;
+  animation: slow-orbit 120s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-slow,
+  .orbit-slower {
+    animation: none;
+  }
+}
+
 @layer components {
   .editorial-serif {
     font-family: var(--font-serif);
