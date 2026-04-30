@@ -1,25 +1,25 @@
 const defaultArchitectureSteps = [
   {
     label: 'Input',
-    title: 'Signal intake',
+    title: 'Source inputs',
     description:
       'Market, audience, performance, content, and operational inputs are organized into a clear system model.',
   },
   {
     label: 'Processing',
-    title: 'Workflow structure',
+    title: 'System routing',
     description:
       'Inputs are shaped into planning flows, interface patterns, content systems, or dashboard logic.',
   },
   {
     label: 'Intelligence',
-    title: 'Decision layer',
+    title: 'Interpretive model',
     description:
       'The system surfaces context, priority, and next-step clarity through narrative, visualization, or automation.',
   },
   {
     label: 'Output',
-    title: 'Execution surface',
+    title: 'Delivery interface',
     description:
       'The final experience gives teams, readers, or operators a usable product surface for action.',
   },
@@ -73,6 +73,7 @@ function createProject({
   relatedAssetsTitle,
   relatedAssetsIntro,
   filterGroup,
+  screenshotPlaceholder,
 }) {
   return {
     slug,
@@ -113,7 +114,7 @@ function createProject({
     relatedAssets,
     relatedAssetsTitle,
     relatedAssetsIntro,
-    screenshotPlaceholder: `${title} product preview`,
+    screenshotPlaceholder: screenshotPlaceholder || `${title} product preview`,
     images: ['/placeholder.png'],
   };
 }
@@ -133,6 +134,33 @@ export const projects = [
       'Context: Campaign planning and execution spread across disconnected tools with no unified system. The Challenge: Teams lacked a centralized way to plan, track, and execute campaigns across channels, creating bottlenecks and misalignment.',
     solution:
       'Overture OS structures marketing operations around connected inputs, real-time visibility, and repeatable decision workflows so teams can move from scattered activity to coordinated revenue execution.',
+    screenshotPlaceholder: 'Overture OS campaign system',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Campaign inputs and content planning',
+        description:
+          'Campaign requirements, channel priorities, content ideas, and launch needs enter one coordinated planning system.',
+      },
+      {
+        label: 'Processing',
+        title: 'Workflow orchestration and scheduling',
+        description:
+          'Planning inputs are sequenced into campaign timelines, ownership paths, publishing windows, and execution workflows.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Performance tracking and optimization',
+        description:
+          'The system connects execution activity to performance signals so teams can adjust campaigns with clearer context.',
+      },
+      {
+        label: 'Output',
+        title: 'Cross-channel execution layer',
+        description:
+          'Operators get a unified surface for coordinating campaign delivery across content, channels, and reporting.',
+      },
+    ],
     impact: [
       'Centralized campaign planning, tracking, and publishing workflows.',
       'Improved cross-channel coordination and visibility.',
@@ -161,6 +189,33 @@ export const projects = [
       'Context: Operators were monitoring too many disconnected signals without a reliable way to separate noise from priority changes. The Challenge: Important market, workflow, and performance signals were buried across tools, delaying response and making decisions reactive.',
     solution:
       'SignalForge creates a signal layer that detects meaningful changes, organizes them around business context, and turns them into workflows teams can act on.',
+    screenshotPlaceholder: 'SignalForge intelligence engine',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Search + market signal ingestion',
+        description:
+          'Search behavior, market movement, audience activity, and competitive signals enter the intelligence layer.',
+      },
+      {
+        label: 'Processing',
+        title: 'Signal extraction and clustering',
+        description:
+          'Raw signals are filtered, grouped, and organized around themes that reveal meaningful change.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Intent scoring and prioritization',
+        description:
+          'The engine ranks patterns by urgency, opportunity, and strategic relevance for operators.',
+      },
+      {
+        label: 'Output',
+        title: 'Actionable insight layer',
+        description:
+          'Teams receive focused intelligence that translates signal movement into decisions and next steps.',
+      },
+    ],
     impact: [
       'Improved visibility into high-priority signals.',
       'Reduced manual scanning and interpretation friction.',
@@ -186,6 +241,33 @@ export const projects = [
       'An editorial strategy experience explaining the shift from traditional SEO to AI search and answer-engine discovery.',
     problem:
       'Context: Search behavior is shifting from ranked links to AI answers, entity recognition, and multi-platform discovery. The Challenge: Teams need a clear way to understand how SEO, answer engines, authority signals, and platform visibility now work together.',
+    screenshotPlaceholder: 'AI search strategy field guide',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Search behavior and platform shifts',
+        description:
+          'SEO changes, answer-engine behavior, entity signals, and multi-platform discovery patterns shape the editorial foundation.',
+      },
+      {
+        label: 'Processing',
+        title: 'Editorial synthesis and section sequencing',
+        description:
+          'Complex search concepts are organized into a guided narrative that moves readers through the new discovery model.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Entity authority and answer-engine framing',
+        description:
+          'The experience clarifies how authority, structure, and machine-readable context influence modern visibility.',
+      },
+      {
+        label: 'Output',
+        title: 'Strategic discovery playbook',
+        description:
+          'Readers leave with a sharper framework for building visibility across SEO, AI search, and platform ecosystems.',
+      },
+    ],
     impact: [
       'Clarified the strategic shift from keyword SEO to answer-engine visibility.',
       'Framed AI search, entity authority, and multi-platform discovery in one narrative system.',
@@ -205,6 +287,33 @@ export const projects = [
       'A spatial intelligence dashboard concept for exploring market and risk signals through layered 3D visualization.',
     problem:
       'Context: Market, performance, and risk data often lives in flat dashboards that make spatial relationships hard to understand. The Challenge: Users needed a more dimensional way to explore layered signals without losing orientation or decision context.',
+    screenshotPlaceholder: 'Axiome spatial intelligence dashboard',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Market, performance, and risk layers',
+        description:
+          'Multiple signal types enter the workspace as layered data inputs that can be explored spatially.',
+      },
+      {
+        label: 'Processing',
+        title: '3D spatial mapping and filtering',
+        description:
+          'The dashboard translates flat metrics into visual layers, spatial relationships, and interactive exploration paths.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Pattern recognition across visual signals',
+        description:
+          'Users can inspect relationships between market activity, performance movement, and risk indicators.',
+      },
+      {
+        label: 'Output',
+        title: 'Interactive intelligence workspace',
+        description:
+          'The result is a dimensional dashboard surface for exploring signals and orienting decisions.',
+      },
+    ],
     impact: [
       'Created a 3D exploration model for market, performance, and risk signals.',
       'Improved conceptual visibility across layered intelligence inputs.',
@@ -238,6 +347,33 @@ export const projects = [
       'An executive intelligence dashboard designed to turn recruitment, sentiment, and shareholder signals into leadership-ready visibility.',
     problem:
       'Context: Leadership lacked clear visibility into how campaigns were performing and contributing to pipeline outcomes. The Challenge: Campaign data was siloed and difficult to interpret, making attribution unclear and slowing decision-making.',
+    screenshotPlaceholder: 'Executive performance dashboard',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Campaign and engagement data streams',
+        description:
+          'Campaign activity, engagement signals, pipeline context, and performance data feed the executive view.',
+      },
+      {
+        label: 'Processing',
+        title: 'Data aggregation and normalization',
+        description:
+          'Disconnected reporting inputs are consolidated into a cleaner model for leadership review.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Attribution and performance analysis',
+        description:
+          'The dashboard connects campaign movement to attribution, sentiment, and business performance signals.',
+      },
+      {
+        label: 'Output',
+        title: 'Executive reporting interface',
+        description:
+          'Leadership gets a polished intelligence surface for faster review, alignment, and decision-making.',
+      },
+    ],
     impact: [
       'Increased attribution visibility +47% across campaign performance.',
       'Reduced reporting time -35% through consolidated dashboards.',
@@ -259,6 +395,33 @@ export const projects = [
       'A content management framework optimized for scale and personalization.',
     problem:
       'Context: High-volume, multi-platform content execution with inconsistent workflows and missed deadlines. The Challenge: Content production and approvals were fragmented, leading to delays, inconsistent publishing, and limited visibility into execution.',
+    screenshotPlaceholder: 'Content execution system',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Content requests and campaign briefs',
+        description:
+          'Content needs, campaign inputs, audience goals, and platform requirements enter a structured production queue.',
+      },
+      {
+        label: 'Processing',
+        title: 'Production and approval workflows',
+        description:
+          'Requests move through drafting, review, approval, scheduling, and publishing readiness with clearer ownership.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Publishing cadence and performance tracking',
+        description:
+          'The system tracks delivery rhythm and performance signals to support better planning decisions.',
+      },
+      {
+        label: 'Output',
+        title: 'Scheduled content delivery',
+        description:
+          'Teams get a repeatable execution surface for shipping content across platforms on a reliable cadence.',
+      },
+    ],
     impact: [
       'Reduced turnaround time -39% by streamlining production and approval workflows.',
       'Improved publishing consistency to 95%+ on-time delivery.',
@@ -293,29 +456,30 @@ export const projects = [
     architectureSteps: [
       {
         label: 'Input',
-        title: 'Campaign plans and event inputs',
+        title: 'Channel requirements and content backlog',
         description:
-          'Event priorities, programming needs, social requirements, reporting inputs, and presentation assets enter a coordinated campaign structure.',
+          'Weekly channel needs, event priorities, content inventory, and campaign requests enter the planning system.',
       },
       {
         label: 'Processing',
-        title: 'Asset orchestration',
+        title: 'Weekly scheduling and coordination',
         description:
-          'Campaign assets move through planning, ownership, review, publishing readiness, and event-support workflows.',
+          'Content is organized into publishing windows, ownership assignments, event support needs, and approval paths.',
       },
       {
         label: 'Intelligence',
-        title: 'Campaign visibility',
+        title: 'Performance insights and optimization signals',
         description:
-          'Structured views help teams understand asset coverage, timing, channel readiness, and post-event storytelling opportunities.',
+          'Performance patterns and cadence visibility help inform format decisions, timing, and future planning.',
       },
       {
         label: 'Output',
-        title: 'Coordinated campaign delivery',
+        title: 'Multi-platform content calendar',
         description:
-          'Teams can execute across event programming, social content, reporting, and branded digital proof with clearer timing and responsibilities.',
+          'Teams get a structured calendar for coordinated delivery across campaign, event, and social content surfaces.',
       },
     ],
+    screenshotPlaceholder: 'Content planning system',
     impact: [
       'Maintained 3-4x weekly publishing cadence with 90%+ on-time delivery.',
       'Reduced missed deadlines -40% through structured workflows.',
@@ -370,6 +534,33 @@ export const projects = [
       'A developer experience hub structured around technical resource discovery and product education.',
     problem:
       'Context: Developer-facing resources needed to support education, discovery, and product understanding in one coherent destination. The Challenge: Technical content can become fragmented across docs, marketing pages, and product explainers, making it harder for developers to find the right path.',
+    screenshotPlaceholder: 'Developer resource hub',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Technical resources and product education',
+        description:
+          'Docs, tutorials, product explainers, and developer learning needs feed the hub architecture.',
+      },
+      {
+        label: 'Processing',
+        title: 'Content architecture and taxonomy',
+        description:
+          'Technical material is organized into discoverable pathways, categories, and resource groupings.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Discoverability and learning path logic',
+        description:
+          'The experience guides developers toward relevant resources based on intent, product area, and education stage.',
+      },
+      {
+        label: 'Output',
+        title: 'Developer-facing knowledge hub',
+        description:
+          'Developers get a focused destination for understanding products, finding resources, and moving faster.',
+      },
+    ],
     impact: [
       'Improved organization of developer education and technical resources.',
       'Created a clearer entry point for product understanding and discovery.',
@@ -389,6 +580,33 @@ export const projects = [
       'An AI campaign operations concept for planning, execution, and optimization workflows.',
     problem:
       'Context: Campaign teams often plan, execute, and optimize across disconnected workflows while AI tools sit outside the operating process. The Challenge: The concept needed to show how AI could support campaign operations without becoming another isolated layer.',
+    screenshotPlaceholder: 'AI campaign operations workspace',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Campaign goals and workflow inputs',
+        description:
+          'Campaign objectives, channel requirements, tasks, constraints, and optimization needs enter the workspace.',
+      },
+      {
+        label: 'Processing',
+        title: 'AI-assisted planning and task structuring',
+        description:
+          'The system organizes campaign work into recommended steps, production flows, and execution priorities.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Optimization prompts and execution signals',
+        description:
+          'AI-supported cues help operators identify planning gaps, improve decisions, and tune campaign activity.',
+      },
+      {
+        label: 'Output',
+        title: 'Campaign operations command layer',
+        description:
+          'Teams get a campaign workspace for coordinating planning, execution, and optimization in one flow.',
+      },
+    ],
     impact: [
       'Framed AI as an operational workflow layer for campaign planning and execution.',
       'Connected campaign strategy, optimization, and production into one product concept.',
@@ -408,6 +626,33 @@ export const projects = [
       'A cinematic interactive essay experience built around immersive pacing and narrative visual storytelling.',
     problem:
       'Context: The editorial concept required a digital experience that could carry tension, pacing, and visual impact beyond a conventional article format. The Challenge: The narrative needed to feel cinematic and immersive while remaining readable, structured, and web-native.',
+    screenshotPlaceholder: 'Cinematic editorial experience',
+    architectureSteps: [
+      {
+        label: 'Input',
+        title: 'Narrative thesis and visual motifs',
+        description:
+          'The central editorial idea, supporting argument, and visual language establish the experience direction.',
+      },
+      {
+        label: 'Processing',
+        title: 'Pacing, sections, and scroll sequencing',
+        description:
+          'The essay is structured into cinematic beats that control rhythm, progression, and reader attention.',
+      },
+      {
+        label: 'Intelligence',
+        title: 'Tension-building editorial cues',
+        description:
+          'Visual emphasis, copy hierarchy, and transitions reinforce the argument without sacrificing readability.',
+      },
+      {
+        label: 'Output',
+        title: 'Immersive essay experience',
+        description:
+          'Readers move through a polished editorial surface built for narrative momentum and impact.',
+      },
+    ],
     impact: [
       'Created a cinematic editorial experience around a high-impact narrative concept.',
       'Improved pacing through immersive visual sequencing and interaction design.',
