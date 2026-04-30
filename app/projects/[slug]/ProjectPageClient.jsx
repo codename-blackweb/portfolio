@@ -38,12 +38,14 @@ function liveLinkProps(url) {
 }
 
 function InteractiveFallbackPreview({ project, ctaLabel }) {
-  const fragments = [
-    'Campaign structure',
-    'Asset timeline',
-    'Audience touchpoints',
-    'Execution status',
-  ];
+  const fragments =
+    project.preview?.cards?.map((card) => card.title) ||
+    project.workflow?.cards?.map((card) => card.title) || [
+      `${project.title} overview`,
+      `${project.title} navigation`,
+      `${project.title} content surface`,
+      `${project.title} live access`,
+    ];
 
   return (
     <motion.div
@@ -290,12 +292,25 @@ function CampaignAssetEcosystem({ project }) {
 
 export default function ProjectPageClient({ project }) {
   const liveUrl = project.liveUrl || project.link || '#';
+  const capabilityCards = project.capabilities.cards;
+  const impactBullets = project.impact.bullets;
+  const systemCards = project.system.cards;
   const layeredCapabilities = systemLayers.map((layer, index) => {
     return (
-      project.capabilities.find((capability) => capability.label === layer) ||
-      project.capabilities[index]
+      systemCards.find((capability) => capability.label === layer) ||
+      systemCards[index]
     );
-  });
+  }).filter(Boolean);
+  const problemContent =
+    typeof project.problem === 'string'
+      ? {
+          headline: `${project.title} problem`,
+          body: project.problem,
+          bullets: impactBullets,
+        }
+      : project.problem;
+  const previewCards = project.preview.cards;
+  const workflowCards = project.workflow.cards;
 
   return (
     <main className="min-h-screen overflow-hidden text-[var(--text-primary)]">
@@ -396,12 +411,12 @@ export default function ProjectPageClient({ project }) {
                 <div className="relative grid h-full gap-4">
                   <div className="rounded-2xl border border-[var(--border)] bg-[var(--panel-strong)] p-5">
                     <p className="text-xs uppercase tracking-[0.28em] text-[var(--text-muted)]">
-                      System Preview
+                      {project.preview.label}
                     </p>
-                    <p className="editorial-sans mt-3 text-2xl font-semibold text-[var(--text-primary)]">{project.screenshotPlaceholder}</p>
+                    <p className="editorial-sans mt-3 text-2xl font-semibold text-[var(--text-primary)]">{project.preview.title}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    {project.architectureSteps.slice(0, 4).map((step, index) => (
+                    {previewCards.map((step, index) => (
                       <motion.div
                         key={step.label}
                         initial={{ opacity: 0, y: 18 }}
@@ -437,9 +452,9 @@ export default function ProjectPageClient({ project }) {
               Context
             </p>
             <h2 className="editorial-serif mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-              The Problem
+              {problemContent.headline}
             </h2>
-            <p className="editorial-copy mt-6 text-lg leading-8">{project.problem}</p>
+            <p className="editorial-copy mt-6 text-lg leading-8">{problemContent.body}</p>
           </motion.div>
           <motion.div
             initial="hidden"
@@ -448,7 +463,7 @@ export default function ProjectPageClient({ project }) {
             variants={staggerGroup}
             className="grid gap-5 sm:grid-cols-2"
           >
-            {project.impact.map((statement) => (
+            {problemContent.bullets.map((statement) => (
               <motion.div
                 key={statement}
                 variants={fadeUp}
@@ -478,9 +493,9 @@ export default function ProjectPageClient({ project }) {
               Product Logic
             </p>
             <h2 className="editorial-serif mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-              The System
+              {project.system.headline}
             </h2>
-            <p className="editorial-copy mt-6 text-lg leading-8">{project.solution}</p>
+            <p className="editorial-copy mt-6 text-lg leading-8">{project.system.intro}</p>
           </motion.div>
 
           <motion.div
@@ -523,7 +538,7 @@ export default function ProjectPageClient({ project }) {
               Architecture
             </p>
             <h2 className="editorial-serif mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-              Workflow Flow
+              {project.workflow.headline}
             </h2>
           </motion.div>
 
@@ -534,7 +549,7 @@ export default function ProjectPageClient({ project }) {
             variants={staggerGroup}
             className="mt-12 grid gap-4 lg:grid-cols-4"
           >
-            {project.architectureSteps.map((step, index) => (
+            {workflowCards.map((step, index) => (
               <motion.div
                 key={step.label}
                 variants={fadeUp}
@@ -542,7 +557,7 @@ export default function ProjectPageClient({ project }) {
                 whileHover={{ y: -6, scale: 1.015 }}
                 className="relative rounded-2xl border border-[var(--border)] bg-[rgba(10,10,10,0.58)] p-6"
               >
-                {index < project.architectureSteps.length - 1 && (
+                {index < workflowCards.length - 1 && (
                   <span className="absolute -right-4 top-1/2 hidden h-px w-8 bg-gradient-to-r from-[var(--gold-muted)] to-transparent lg:block" />
                 )}
                 <p className="editorial-sans text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
@@ -570,7 +585,7 @@ export default function ProjectPageClient({ project }) {
               Capabilities
             </p>
             <h2 className="editorial-serif mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-              Built as operating infrastructure
+              {project.capabilities.headline}
             </h2>
           </motion.div>
           <motion.div
@@ -580,7 +595,7 @@ export default function ProjectPageClient({ project }) {
             variants={staggerGroup}
             className="mt-12 grid gap-5 md:grid-cols-2"
           >
-            {project.capabilities.map((capability) => (
+            {capabilityCards.map((capability) => (
               <motion.div
                 key={`${capability.label}-${capability.title}`}
                 variants={fadeUp}
@@ -613,7 +628,7 @@ export default function ProjectPageClient({ project }) {
               Impact
             </p>
             <h2 className="editorial-serif mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-              Outcome over activity
+              {project.impact.headline}
             </h2>
           </motion.div>
           <motion.div
@@ -623,7 +638,7 @@ export default function ProjectPageClient({ project }) {
             variants={staggerGroup}
             className="space-y-4"
           >
-            {project.impact.map((statement) => (
+            {impactBullets.map((statement) => (
               <motion.div
                 key={statement}
                 variants={fadeUp}
